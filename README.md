@@ -23,7 +23,7 @@ You can download the model and place it in the directiory
       - /text_encoder
       - /tokenizer
       - ...
-    - /configs
+  - /configs
 
  **Data**
 
