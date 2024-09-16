@@ -16,13 +16,14 @@ pip install -r requirements.txt
 **Diffusion Models**:
 The Stable Diffusion 2.1 can be accessed from [here](https://huggingface.co/stabilityai/stable-diffusion-2-1).
 You can download the model and place it in the directiory
-|-AdvLogo
-  |-stable-diffusion-2-1
-      |-feature_extractor
-      |-scheduler
-      |-text_encoder
-      |-tokenizer
-      ...
+- AdvLogo/
+  - /stable-diffusion-2-1
+      - /feature_extractor
+      - /scheduler
+      - /text_encoder
+      - /tokenizer
+      - ...
+    - /configs
 
  **Data**
 
