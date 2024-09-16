@@ -1,0 +1,35 @@
+DATA:
+  CLASS_NAME_FILE: 'configs/namefiles/coco80.names'
+  AUGMENT: 1
+
+  TRAIN:
+    IMG_DIR: 'data/INRIAPerson/Train/pos'
+    LAB_DIR:
+
+DETECTOR:
+  NAME: ["YOLOV4"]
+  INPUT_SIZE: [416, 416]
+  BATCH_SIZE: 8
+  CONF_THRESH: 0.5
+  IOU_THRESH: 0.45
+
+  PERTURB:
+    GATE: null
+
+ATTACKER:
+  METHOD: "diffpgd"
+  EPSILON: 30
+  MAX_EPOCH: 20
+  ITER_STEP: 1
+  STEP_LR: 0.2
+  LR_SCHEDULER: 'ALRS_PGD'
+  ATTACK_CLASS: '0'
+  LOSS_FUNC: "descend-mse"
+  tv_eta: 2.5
+
+  PATCH:
+    WIDTH: 512
+    HEIGHT: 512
+    SCALE: 0.15
+    INIT: "diffusion"
+    TRANSFORM: ['jitter', 'rotate', 'median_pool', 'cutout']

@@ -1,0 +1,37 @@
+DATA:
+  CLASS_NAME_FILE: 'configs/namefiles/coco80.names'
+  AUGMENT: 1
+
+  TRAIN:
+    IMG_DIR: 'data/INRIAPerson/Train/pos'
+    LAB_DIR:
+
+DETECTOR:
+  NAME: ["YOLOV3-tiny"]
+  INPUT_SIZE: [416, 416]
+  BATCH_SIZE: 8
+  MODEL_CONFIG: 'HHDet/yolov3/PyTorch_YOLOv3/config/yolov3-tiny.cfg'
+  CONF_THRESH: 0.5
+  IOU_THRESH: 0.45
+
+  PERTURB:
+    GATE: null
+
+ATTACKER:
+  METHOD: "revdiff"
+  EPSILON: 1
+  REV_EPSILON: 0.5
+  MAX_EPOCH: 20
+  ITER_STEP: 2
+  REV_ITER_STEP: 1
+  STEP_LR: 0.01
+  ATTACK_CLASS: '0'
+  LOSS_FUNC: "descend-mse"
+  tv_eta: 0.1
+
+  PATCH:
+    WIDTH: 512
+    HEIGHT: 512
+    SCALE: 0.15
+    INIT: "diffusion"
+    TRANSFORM: ['jitter', 'rotate', 'median_pool', 'cutout']
