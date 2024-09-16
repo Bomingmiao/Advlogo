@@ -1,13 +1,10 @@
-# T-SEA: Transfer-based Self-Ensemble Attack on Object Detection(CVPR 2023)
-
-[**English**](https://github.com/VDIGPKU/T-SEA/blob/main/README.md)
-| [**中文**](https://github.com/VDIGPKU/T-SEA/blob/main/README-cn.md)
+# AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models
 
 
-[**Paper**](https://arxiv.org/abs/2211.09773)
+[**Paper**]()
 | Hao Huang*, Ziyan Chen*, Huanran Chen*, Yongtao Wang, Kevin Zhang
 
-(*Equal contribution)
+
 
 An official implementation of T-SEA, and also a framework provided to achieve universal (cross model&instance) patch-based adversarial attack.
 
@@ -16,10 +13,6 @@ An official implementation of T-SEA, and also a framework provided to achieve un
 
 If T-SEA is helpful for your work, please help star this repo~ Thanks! :-D
 
-## Update
-* 2023.02.02 - v1.2 An anchor-free detector, [CenterNet](https://github.com/xingyizhou/CenterNet), is now supported.
-* 2022.11.22 - v1.1 Fix bugs for running train & eval scripts.
-* 2022.11.18 - v1.0 This repo is created.
 
 
 ## Install
@@ -120,9 +113,7 @@ See more details in [**README**](https://github.com/VDIGPKU/T-SEA/blob/main/read
 }
 ```
 
-## Contact Us
-If you have any problem about this work, please feel free to reach us out at `huanghao@stu.pku.edu.cn`.
 
 ## License
 
-The project is only free for academic research purposes, but needs authorization forcommerce. For commerce permission, please contact wyt@pku.edu.cn.
+The project is only free for academic research purposes, but needs authorization forcommerce. For commerce permission, please contact bomingmiao@gmail.com.
