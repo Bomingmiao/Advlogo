@@ -1,48 +1,34 @@
 # AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models
 
 
-[**Paper**]()
-| Hao Huang*, Ziyan Chen*, Huanran Chen*, Yongtao Wang, Kevin Zhang
+[**Paper**](https://arxiv.org/abs/2409.07002)
+**Abstract:** With the rapid development of deep learning, object detectors have demonstrated impressive performance; however, vulnerabilities still exist in certain scenarios. Current research exploring the vulnerabilities using adversarial patches often struggles to balance the trade-off between attack effectiveness and visual quality. To address this problem, we propose a novel framework of patch attack from semantic perspective, which we refer to as AdvLogo. Based on the hypothesis that every semantic space contains an adversarial subspace where images can cause detectors to fail in recognizing objects, we leverage the semantic understanding of the diffusion denoising process and drive the process to adversarial subareas by perturbing the latent and unconditional embeddings at the last timestep. To mitigate the distribution shift that exposes a negative impact on image quality, we apply perturbation to the latent in frequency domain with the Fourier Transform. Experimental results demonstrate that AdvLogo achieves strong attack performance while maintaining high visual quality.
 
+## Framework Overview
+We provide a main pipeline to craft a universal adversarial patch to achieve cross-model & cross-instance attack on detectors, 
+and support evaluations on given data & models.
 
-
-An official implementation of T-SEA, and also a framework provided to achieve universal (cross model&instance) patch-based adversarial attack.
-
-
-![](readme/pipeline.png)
-
-If T-SEA is helpful for your work, please help star this repo~ Thanks! :-D
-
-
+![](readme/framework.png)
 
 ## Install
 ### Environment
 
 ```bash
-conda create -n tsea python=3.7
-conda activate tsea
+conda create -n advlogo python=3.8
+conda activate advlogo
 pip install -r requirements.txt
 ```
-Please refer to [PyTorch Docs](https://pytorch.org/get-started/previous-versions/) to install `torch` and `torchvision` for better compatibility.
 
  **Data**
 
 | Data        |                                             Generated Labels                                             |                                              Source                                              |                                            
 |-------------|:--------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-| CCTVPerson  |  [GoogleDrive](https://drive.google.com/drive/folders/1R5DDNR0XPvSW-WyuCihDlPHf6C2XXb-o?usp=share_link)  |   [Human Detection](https://www.kaggle.com/datasets/constantinwerner/human-detection-dataset)    |
-| COCOperson  |  [GoogleDrive](https://drive.google.com/drive/folders/1zKO6yXllhReiDS04WKkb6JIkxvAW2s_9?usp=share_link)  |                            [HomePage](https://cocodataset.org/#home)                             |
 | INRIAPerson |  [GoogleDrive](https://drive.google.com/drive/folders/1zKO6yXllhReiDS04WKkb6JIkxvAW2s_9?usp=share_link)  |               [Paper](https://hal.inria.fr/docs/00/54/85/12/PDF/hog_cvpr2005.pdf)                |
 
-See more details in [Docs](https://github.com/VDIGPKU/T-SEA/blob/main/readme/data.md).
+See more details in [Docs](./readme/data.md).
 
 
 ### Run
-
-**Patch Zoo** - See more results in [GoogleDrive](https://drive.google.com/drive/folders/1bGDf5fHVxajexKZUk22OMc5wag_adH-e?usp=share_link) | [BaiduCloud](https://pan.baidu.com/s/1U3L0cOOeUr0RfFf4rSfYmQ?pwd=f946).
-
-| Faster RCNN               | SSD                               | Yolo V5                   | Yolo V3  |CenterNet |
-|---------------------------|----------------------------------|--------------------------|:------------:| ----|
-| ![](results/faster_rcnn-combine-demo.png) | ![](results/ssd-combine-demo.png) | ![](results/v5-demo.png) | ![](results/v3-combine.png) |![](results/centernet-combine.png) |
 
 #### Evaluation
 
@@ -91,11 +77,6 @@ The default save path of tensorboard logs is **runs/**.
 Modify the config .yaml files for custom settings, see details in [**README**](https://github.com/VDIGPKU/T-SEA/blob/main/configs/README.yaml).
 
 
-## Framework Overview
-
-We provide a main pipeline to craft a universal adversarial patch to achieve cross-model & cross-instance attack on detectors, 
-and support evaluations on given data & models.
-See more details in [**README**](https://github.com/VDIGPKU/T-SEA/blob/main/readme/overview.md).
 
 ## Acknowledgements
 
@@ -104,12 +85,11 @@ See more details in [**README**](https://github.com/VDIGPKU/T-SEA/blob/main/read
 
 ## Citation
 ```
-@inproceedings{huang2023t,
-  title={T-sea: Transfer-based self-ensemble attack on object detection},
-  author={Huang, Hao and Chen, Ziyan and Chen, Huanran and Wang, Yongtao and Zhang, Kevin},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={20514--20523},
-  year={2023}
+@article{miao2024advlogo,
+  title={AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models},
+  author={Miao, Boming and Li, Chunxiao and Zhu, Yao and Sun, Weixiang and Wang, Zizhe and Wang, Xiaoyi and Xie, Chuanlong},
+  journal={arXiv preprint arXiv:2409.07002},
+  year={2024}
 }
 ```
 
