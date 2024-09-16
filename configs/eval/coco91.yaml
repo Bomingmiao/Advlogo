@@ -24,8 +24,8 @@ ATTACKER:
   LOSS_FUNC: ''
 
   PATCH:
-    WIDTH: 300
-    HEIGHT: 300
+    WIDTH: 512
+    HEIGHT: 512
     SCALE: 0.2
 
     TRANSFORM: ['median_pool', 'p9_scale']

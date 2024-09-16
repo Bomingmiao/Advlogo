@@ -3,9 +3,6 @@
 **Abstract:** With the rapid development of deep learning, object detectors have demonstrated impressive performance; however, vulnerabilities still exist in certain scenarios. Current research exploring the vulnerabilities using adversarial patches often struggles to balance the trade-off between attack effectiveness and visual quality. To address this problem, we propose a novel framework of patch attack from semantic perspective, which we refer to as AdvLogo. Based on the hypothesis that every semantic space contains an adversarial subspace where images can cause detectors to fail in recognizing objects, we leverage the semantic understanding of the diffusion denoising process and drive the process to adversarial subareas by perturbing the latent and unconditional embeddings at the last timestep. To mitigate the distribution shift that exposes a negative impact on image quality, we apply perturbation to the latent in frequency domain with the Fourier Transform. Experimental results demonstrate that AdvLogo achieves strong attack performance while maintaining high visual quality.
 
 ## Framework Overview
-We provide a main pipeline to craft a universal adversarial patch to achieve cross-model & cross-instance attack on detectors, 
-and support evaluations on given data & models.
-
 ![](readme/framework.png)
 
 ## Install
@@ -56,14 +53,14 @@ python evaluate.py -h
 #### Training
 ```bash
 # You can run the demo script directly:
-bash ./scripts/train.sh 0 -np
+bash ./scripts/train_diff.sh 0 -np
 # args: 0 gpu-id, -np new tensorboard process
 ```
 
 ```bash
 # Or run the full command:
 python train_optim.py -np \
--cfg=demo.yaml \
+-cfg=advlogo/v3.yaml \
 -s=./results/demo \
 -n=v5-combine-demo # patch name & tensorboard name
 

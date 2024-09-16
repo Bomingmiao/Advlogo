@@ -20,5 +20,5 @@ ftfy
 tensorboard
 Jinja2
 tensorflow
-#git+https://github.com/openai/CLIP.git
+git+https://github.com/openai/CLIP.git
 

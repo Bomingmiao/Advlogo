@@ -23,10 +23,7 @@ attack_method_dict = {
     "mim": LinfMIMAttack,
     "pgd": LinfPGDAttack,
     "optim": OptimAttacker,
-    "diff":DiffAttack,
-    "diffpgd":DiffPGDAttack,
-    "revdiff":ReverseDiffAttack,
-    "diffemb":DiffEmbAttack
+    "diffpgd":DiffPGDAttack
 }
 
 loss_dict = {
