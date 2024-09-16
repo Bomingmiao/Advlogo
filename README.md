@@ -1,5 +1,5 @@
-# AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models [**Paper**](https://arxiv.org/abs/2409.07002)
-
+# AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models
+##  [**Paper**](https://arxiv.org/abs/2409.07002)
 **Abstract:** With the rapid development of deep learning, object detectors have demonstrated impressive performance; however, vulnerabilities still exist in certain scenarios. Current research exploring the vulnerabilities using adversarial patches often struggles to balance the trade-off between attack effectiveness and visual quality. To address this problem, we propose a novel framework of patch attack from semantic perspective, which we refer to as AdvLogo. Based on the hypothesis that every semantic space contains an adversarial subspace where images can cause detectors to fail in recognizing objects, we leverage the semantic understanding of the diffusion denoising process and drive the process to adversarial subareas by perturbing the latent and unconditional embeddings at the last timestep. To mitigate the distribution shift that exposes a negative impact on image quality, we apply perturbation to the latent in frequency domain with the Fourier Transform. Experimental results demonstrate that AdvLogo achieves strong attack performance while maintaining high visual quality.
 
 ## Framework Overview
@@ -13,6 +13,16 @@ conda create -n advlogo python=3.8
 conda activate advlogo
 pip install -r requirements.txt
 ```
+**Diffusion Models**:
+The Stable Diffusion 2.1 can be accessed from [here](https://huggingface.co/stabilityai/stable-diffusion-2-1).
+You can download the model and place it in the directiory
+|-AdvLogo
+  |-stable-diffusion-2-1
+      |-feature_extractor
+      |-scheduler
+      |-text_encoder
+      |-tokenizer
+      ...
 
  **Data**
 
@@ -31,41 +41,23 @@ The evaluation metrics of the **Mean Average Precision([mAP](https://github.com/
 
 ```bash
 # You can run the demo script directly:
-bash ./scripts/eval.sh 0 # gpu id
-```
-
-```bash
-# To run the full command in the root proj dir:
-python evaluate.py \
--p ./results/v5-demo.png \
--cfg ./configs/eval/coco80.yaml \
--lp ./data/INRIAPerson/Test/labels \
--dr ./data/INRIAPerson/Test/pos \
--s ./data/test \
--e 0 # attack class id
-
-# for torch-models(coco91): replace -cfg with ./configs/eval/coco91.yaml
-
-# For detailed supports of the arguments:
-python evaluate.py -h
+bash ./scripts/eval.sh 
 ```
 
 #### Training
+To train the AdvLogo, you can run the following command:
 ```bash
-# You can run the demo script directly:
-bash ./scripts/train_diff.sh 0 -np
+bash ./scripts/train_advlogo.sh
 # args: 0 gpu-id, -np new tensorboard process
 ```
-
+or you can run the full command:
 ```bash
-# Or run the full command:
-python train_optim.py -np \
+python train_fgsm.py -np \
 -cfg=advlogo/v3.yaml \
--s=./results/demo \
--n=v5-combine-demo # patch name & tensorboard name
-
-# For detailed supports of the arguments:
-python train_optim.py -h
+-s=./results/advlogo/v3 \
+-n=v3-dog \
+--seed=33 \
+--prompt="a dog, 8k"
 ```
 The default save path of tensorboard logs is **runs/**.
 

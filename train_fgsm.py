@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     cfg = ConfigParser(args.cfg)
     detector_attacker = UniversalAttacker(cfg, device)
-    checkpoint_path = 'stable-diffusion/v_2-1/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6'
+    checkpoint_path = 'stable-diffusion-2-1'
     guidance_scale = 7.5
     num_inference_steps = 20
     if args.latent_path is not None:
@@ -112,7 +112,6 @@ if __name__ == '__main__':
     else:
         latent = None
     diffusion = Diffusion(checkpoint_path,args.prompt, num_inference_steps,guidance_scale,args.seed,latent,device)
-    #diffusion.read_patch(args.patch_path)
     detector_attacker.patch_obj.init_diffusion(diffusion)
     cfg.show_class_label(cfg.attack_list)
     attack(cfg, detector_attacker, save_patch_name, args)
