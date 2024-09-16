@@ -51,7 +51,7 @@ class DiffPGDAttack(Optimizer):
         self.iter_step = cfg.ITER_STEP
         self.attack_class = cfg.ATTACK_CLASS
         self.step_lr = cfg.STEP_LR
-        self.optimizer = torch.optim.AdamW([detector_attacker.patch_obj.uncond_embeddings_list[detector_attacker.patch_obj.start_step]],lr=1e-3)#add
+        self.optimizer = torch.optim.AdamW([detector_attacker.patch_obj.uncond_embeddings_list[detector_attacker.patch_obj.start_step]],lr=1e-4)#optimize the unconditional embeddings
         self.global_step=0
        
 
@@ -117,10 +117,8 @@ class DiffPGDAttack(Optimizer):
         #if self.global_step % self.iter_step % 5 == 1:
          #   self.optimizer.step()
         self.optimizer.step()
-        #grad = self.patch_obj.uncond_embeddings_list[self.patch_obj.start_step].grad
-        #print(grad.max(),grad.min(),grad.abs().mean())
-        if self.global_step == 1000:
-            self.optimizer.param_groups[0]['lr'] *= 0.1
+        #if self.global_step == 5000:
+        #    self.optimizer.param_groups[0]['lr'] *= 0.1
         
         self.patch_obj.uncond_embeddings_list[self.patch_obj.start_step].requires_grad_(False)
         
@@ -158,7 +156,6 @@ class DiffPGDAttack(Optimizer):
     
     def attack_loss(self,confs):
         obj_loss = self.loss_fn(confs = confs)
-       
         tv_loss = self.patch_obj.total_variation()
         #loss = obj_loss + self.cfg.tv_eta * tv_loss.to(obj_loss.device)
         loss = obj_loss
