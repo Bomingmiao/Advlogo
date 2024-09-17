@@ -3,8 +3,8 @@ An official implementation of AdvLogo, the exploration of adversarial capability
 
 **Demo**
 
-| YOLO v2                 | YOLO v3                 | YOLO v4                 | Faster-RCNN                      | SSD                      |
-|-------------------------|-------------------------|-------------------------|----------------------------------|--------------------------|
+| YOLO v2 | YOLO v3 | YOLO v4 | Faster-RCNN | SSD |
+| --- | --- | --- | --- | --- |
 | ![](results/v2-dog.png) | ![](results/v3-dog.png) | ![](results/v4-dog.png) | ![](results/faster_rcnn-dog.png) | ![](results/ssd-dog.png) |
 
 **Abstract:** With the rapid development of deep learning, object detectors have demonstrated impressive performance; however, vulnerabilities still exist in certain scenarios. Current research exploring the vulnerabilities using adversarial patches often struggles to balance the trade-off between attack effectiveness and visual quality. To address this problem, we propose a novel framework of patch attack from semantic perspective, which we refer to as AdvLogo. Based on the hypothesis that every semantic space contains an adversarial subspace where images can cause detectors to fail in recognizing objects, we leverage the semantic understanding of the diffusion denoising process and drive the process to adversarial subareas by perturbing the latent and unconditional embeddings at the last timestep. To mitigate the distribution shift that exposes a negative impact on image quality, we apply perturbation to the latent in frequency domain with the Fourier Transform. Experimental results demonstrate that AdvLogo achieves strong attack performance while maintaining high visual quality.
