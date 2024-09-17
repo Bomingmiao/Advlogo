@@ -1,5 +1,6 @@
 # AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models
 An official implementation of AdvLogo, the exploration of adversarial capability within the semantic space. [**Paper**](https://arxiv.org/abs/2409.07002)
+
 **Abstract:** With the rapid development of deep learning, object detectors have demonstrated impressive performance; however, vulnerabilities still exist in certain scenarios. Current research exploring the vulnerabilities using adversarial patches often struggles to balance the trade-off between attack effectiveness and visual quality. To address this problem, we propose a novel framework of patch attack from semantic perspective, which we refer to as AdvLogo. Based on the hypothesis that every semantic space contains an adversarial subspace where images can cause detectors to fail in recognizing objects, we leverage the semantic understanding of the diffusion denoising process and drive the process to adversarial subareas by perturbing the latent and unconditional embeddings at the last timestep. To mitigate the distribution shift that exposes a negative impact on image quality, we apply perturbation to the latent in frequency domain with the Fourier Transform. Experimental results demonstrate that AdvLogo achieves strong attack performance while maintaining high visual quality.
 
 ## Framework Overview
@@ -25,6 +26,7 @@ See more details in [Docs](./readme/data.md).
 
 **Weights of Object Detectors**:
 Pleses refer to [README](./detlib/README.md) for more details.
+
 **Diffusion Models**:
 The Stable Diffusion 2.1 can be accessed from [here](https://huggingface.co/stabilityai/stable-diffusion-2-1).
 You can download the model and place it in the directiory
@@ -42,7 +44,7 @@ You can download the model and place it in the directiory
 
 | YOLO v2                 | YOLO v3                 | YOLO v4                 | Faster-RCNN                      | SSD                      |
 |-------------------------|-------------------------|-------------------------|----------------------------------|--------------------------|
-| ![](results/v2-dog.png) | ![](results/v3-dog.png) | ![](results/v4-dog.png) | ![](results/faster-rcnn-dog.png) | ![](results/ssd-dog.png) |
+| ![](results/v2-dog.png) | ![](results/v3-dog.png) | ![](results/v4-dog.png) | ![](results/faster_rcnn-dog.png) | ![](results/ssd-dog.png) |
 #### Evaluation
 
 The evaluation metrics of the **Mean Average Precision([mAP](https://github.com/Cartucho/mAP))** is provided.
@@ -86,6 +88,7 @@ The competitive methods of AdvLogo are as follows:
 | [Source Code](https://gitlab.com/EAVISE/adversarial-yolo)
 * NAP - [**Paper**](https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_Naturalistic_Physical_Adversarial_Patch_for_Object_Detectors_ICCV_2021_paper.pdf) 
 | [Source Code](https://github.com/aiiu-lab/Naturalistic-Adversarial-Patch)
+
 This project is built upon and adapted from the [T-SEA](https://github.com/VDIGPKU/T-SEA) repository. Special thanks to the contributors of the original project for their valuable codebase.
 ## Citation
 If you find this work useful, please consider citing:
