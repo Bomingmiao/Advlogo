@@ -86,11 +86,9 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--save_path', type=str, default='./results/inria')
     parser.add_argument('-d', '--debugging', action='store_true')
     parser.add_argument('-np', '--new_process', action='store_true', default=False)
-    parser.add_argument('--seed',type=int, default=42)
-    parser.add_argument('--prompt', type = str, default = 'a clock hanging on the wall')
-    parser.add_argument('--class_folder',type= str, default = 'class/clock')
-    parser.add_argument('--latent_path',type=str,default=None)
-    parser.add_argument('--num_inference_steps',type=int,default=50)
+    parser.add_argument('--seed',type=int, default=33)
+    parser.add_argument('--prompt', type = str, default = "a dog, 8k")
+    parser.add_argument('--num_inference_steps',type=int,default=20)
     parser.add_argument('--guidance_scale',type=float, default=7.5)
     args = parser.parse_args()
 
@@ -105,13 +103,8 @@ if __name__ == '__main__':
     cfg = ConfigParser(args.cfg)
     detector_attacker = UniversalAttacker(cfg, device)
     checkpoint_path = 'stable-diffusion-2-1'
-    guidance_scale = 7.5
-    num_inference_steps = 20
-    if args.latent_path is not None:
-        latent = torch.load(args.latent_path)
-    else:
-        latent = None
-    diffusion = Diffusion(checkpoint_path,args.prompt, num_inference_steps,guidance_scale,args.seed,latent,device)
+    latent = None # for random initialization
+    diffusion = Diffusion(checkpoint_path,args.prompt, args.num_inference_steps,args.guidance_scale,args.seed,latent,device)
     detector_attacker.patch_obj.init_diffusion(diffusion)
     cfg.show_class_label(cfg.attack_list)
     attack(cfg, detector_attacker, save_patch_name, args)
