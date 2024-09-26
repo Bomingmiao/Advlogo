@@ -37,7 +37,7 @@ Pleses refer to [README](./detlib/README.md) for more details.
 **Diffusion Models**:
 
 The Stable Diffusion 2.1 can be accessed from [here](https://huggingface.co/stabilityai/stable-diffusion-2-1).
-You can download the model and place it in the directiory
+You can download the model and place the files in the directiory as shown below:
 - AdvLogo/
   - /stable-diffusion-2-1
       - /feature_extractor
