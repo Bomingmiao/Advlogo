@@ -1,5 +1,9 @@
 # AdvLogo: Adversarial Patch Attack against Object Detectors based on Diffusion Models
-An official implementation of AdvLogo, the exploration of adversarial capability within the semantic space. [**Paper**](https://arxiv.org/abs/2409.07002)
+<a href="https://arxiv.org/abs/2409.07002" target="_blank">
+  <img src="https://cornell.box.com/v/arxiv-logo-jpg" alt="arXiv" width="40" height="40">
+</a>
+
+An official implementation of AdvLogo, the exploration of adversarial capability within the semantic space.
 
 **Demo**
 
