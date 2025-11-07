@@ -103,7 +103,3 @@ If you find this work useful, please consider citing:
 }
 ```
 We would really appreciate it if you could give a star to this repository.
-
-## License
-
-The project is only free for academic research purposes, but needs authorization forcommerce. For commerce permission, please contact bomingmiao@gmail.com.
